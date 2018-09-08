@@ -9,17 +9,19 @@ disp('Command is run, they will print out.');
 % Compare element-wise versus array-wise operations on matrices:
 %
 % See the documentation for the magic() function "doc magic", and create a 4x4 magic square: 
-m4 = magic(  
+m4 = magic(4) 
 
 % Q1: What does this operation do?
 %    Does it work on the entire matrix or on each element?
 m4.^2
-disp('Ans 1: <your answer here');
+disp('Ans 1: This operation computes squares of each element of the matrix.');
+disp('It does not work on the entire matrix, it works on the each element of the matrix');
 
 % Q2: What does this operation do?
 %    Does it work on the entire matrix or on each element?
 m4^2
-disp('Ans 2: <your answer here>');
+disp('Ans 2: This operation computes m4 * m4');
+disp('It works on the entire matrix, not on each element');
 
 %
 %  Notice when there are, or are-not, semicolons on the end of the lines.
@@ -27,7 +29,7 @@ disp('Ans 2: <your answer here>');
 % Q3: Can you generate a 7x7 magic square?
 %    (This defines the variable m7?)
 %
-m7 = magic( 
+m7 = magic(7) 
 
 % Q4: Print out one element:
 altuae = m7( 5, 5 )
@@ -43,10 +45,11 @@ m7(34)
 
 % Q7:  If we wanted to print element #34 using (row,col) notation, what notation would we use
 %  Demonstrate that here
-m7( 1, 1 )   % This is wrong, fix it
+m7( 5, 6 )   % This is wrong, fix it
 
 
 % Q8: Extract the last row:
+
 
 %  Remember that you can use “end” as the last element of a dimension. 
 %  This will be on a quiz later
@@ -57,7 +60,7 @@ m7( end, : )
 % Q9: What command would I use to get this row of the matrix, m7:
 %   38    47     7     9    18    27    29
 % ANS:  write the command and execute it.
-
+m7(2, :)
 
 
 % Q10: Extract the 4th column, and transpose it using the .' operator:
@@ -67,8 +70,8 @@ m7( end, : )
 % The ' operator alone converts imaginary values.
 %
 % Does it print as a row or a column?
-m7(  ).'
-
+m7( :, 4 ).'
+disp('It prints as a row')
 
 % Q11: Read in the cameraman image, from the Matlab image example repository:
 im_cam = imread( 'cameraman.tif' );
@@ -81,7 +84,7 @@ imshow( im_cam_head );
 
 % Q13: What command would you use to isolate the part of the image that is the 
 % faint building in the back right side?
-im_subset =  ...  your command to get that image here ...
+im_subset =  im_cam(75:100, 100:200)  % your command to get that image here ...
 imagesc( im_subset );
 pause( 3 ); 				% This waits 3 seconds.
 
@@ -99,7 +102,7 @@ imshow( im_peppers );
 % ANS:
 sub_im = im_peppers(  164:255   ,  200:312  , :  );
 imshow( sub_im );
-disp('Answer the above questions here ... ')
+disp('This image is multi-channel. Cameraman image is grayscale.')
 
 
 % Q16:
@@ -168,7 +171,7 @@ im = im2double( imread('RED_GREEN_BLUE_YELLOW_MEMORY_COLORS.jpg') );
 %
 % Q20b: Display just the red   channel (the red   color plane). 
 %      Then pause for two seconds.
-imshow( ... )
+imshow( im(:,:,1) )
 pause(2)
 disp('Answer -- which objects (if any) vanish when displaying just the red color plane?');
 
@@ -177,20 +180,22 @@ disp('Answer -- which objects (if any) vanish when displaying just the red color
 % Q20c: Just the green channel (the green color plane). 
 %      Then pause for two seconds.
 % put your code here ... 
-imshow( ... );   % just show the green channel.
+imshow( im(:,:,2) )   % just show the green channel.
 disp('Answer -- which objects vanish when displaying just the green color plane?');
 
 %
 % Q20d: Just the blue  channel (the blue  color plane). 
 %      Then pause for three seconds.
 % put your code here ... 
+imshow( im(:,:,3) )   % just show the blue channel.
 disp('Answer -- do any objects vanish?');
 
 %
 % Q20e: The inverse of the image.
 %      Then pause for two seconds.
 % put your code here ... 
-
+imshow(imcomplement(im))
+pause(2)
 
 %
 % Q20f: Display the first channel of inverted image.  
@@ -198,18 +203,23 @@ disp('Answer -- do any objects vanish?');
 %      Then pause for two seconds.
 % put your code here ... 
 %      What color is this?  ANS: 
+imshow( im(:,:,1) )   % just show the red channel.
+pause(2)
 
 %
 % Q20g: Just the second channel.  What color is this?
 %      Then pause for two seconds.
 % put your code here ... 
 %      What color is this?  ANS:
+imshow( im(:,:,2) )   % just show the red channel.
+pause(2)
 
 % Q20h: Just the third channel.
 %      Then pause for three seconds.
 % put your code here ... 
 %      What color is this?  ANS:
-
+imshow( im(:,:,3) )   % just show the red channel.
+pause(2)
 
 
 
