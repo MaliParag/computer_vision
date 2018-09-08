@@ -100,8 +100,8 @@ imshow( im_peppers );
 % I DIDN'T USE THAT FOR THE CAMERA MAN?
 %
 % ANS:
-sub_im = im_peppers(  164:255   ,  200:312  , :  );
-imshow( sub_im );
+sub_im = im_peppers(  164:255   ,  200:312  , :  )
+imshow( sub_im )
 disp('This image is multi-channel. Cameraman image is grayscale.')
 
 
@@ -114,13 +114,13 @@ disp('This image is multi-channel. Cameraman image is grayscale.')
 %
 % ANS ALL QUESTIONS:
 im_cam_mult = im_cam * 4 ; 
-imagesc( im_cam_mult );
+imagesc( im_cam_mult )
 disp('Answer the above questions here ... ')
 
 % Q17:   Try this version, what is different?
 % ANS:
 im_cam_mult = im2double( im_cam ) * 4;
-imagesc( im_cam_mult );
+imagesc( im_cam_mult )
 disp('Answer "what is different here... ".');
 
 
@@ -133,7 +133,7 @@ disp('Answer "what is different here... ".');
 %  Now I am going to clip the current im_cam_mult image to a maximum 
 %  value of 1, and re-display it.
 im_cam_mult( im_cam_mult > 1.0 ) = 1.0;
-imagesc( im_cam_mult );
+imagesc( im_cam_mult )
 
 
 % That operation selects only the values of the image that are over 1.0, 
@@ -150,10 +150,10 @@ im_double = im2double( im_uint8 );
 %
 % ANS:
 im_new = im_double.^3 ;
-imagesc( im_new ); 
+imagesc( im_new )
 
 im_new = im_double.^(1/2.8);
-imagesc( im_new );
+imagesc( im_new )
 
 disp('Answer "what is different here... ".');
 
@@ -167,6 +167,8 @@ im = im2double( imread('RED_GREEN_BLUE_YELLOW_MEMORY_COLORS.jpg') );
 % Q20a: Display the image itself.
 %  Then pause for two seconds  pause(2).
 % put your code here ... 
+imshow(im)
+pause(2)
 
 %
 % Q20b: Display just the red   channel (the red   color plane). 
@@ -181,6 +183,7 @@ disp('Answer -- which objects (if any) vanish when displaying just the red color
 %      Then pause for two seconds.
 % put your code here ... 
 imshow( im(:,:,2) )   % just show the green channel.
+pause(2)
 disp('Answer -- which objects vanish when displaying just the green color plane?');
 
 %
@@ -188,6 +191,7 @@ disp('Answer -- which objects vanish when displaying just the green color plane?
 %      Then pause for three seconds.
 % put your code here ... 
 imshow( im(:,:,3) )   % just show the blue channel.
+pause(3)
 disp('Answer -- do any objects vanish?');
 
 %
@@ -229,6 +233,4 @@ ver
 pause(2);
 % Close all images... 
 close all;
-
-
 
