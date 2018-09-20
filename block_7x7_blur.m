@@ -5,11 +5,11 @@
 % computes and returns the 7x7 block average of the image. Ignore the edges.
 % Actually implement the algorithm to step through each row and column,
 % and manually implements the process of adding up a total, and dividing
-% by 25.
+% by 49.
 % Run this on the provided image and display the results.
 %
 
-function block_7x7_blur(im_in)
+function blur_im = block_7x7_blur(im_in)
 
     % read the image
     im_in = imread(im_in);
@@ -24,7 +24,7 @@ function block_7x7_blur(im_in)
     % find the average and store it in new blurred image
     original_size = size(im_in);
     
-    % find average of surrounding 7x7 pixel values
+    % find block average of surrounding 7x7 pixel values
     for row = 4 : original_size(1) - 4
         for col = 4 : original_size(2) - 4
             sum = 0.0;
@@ -39,8 +39,12 @@ function block_7x7_blur(im_in)
         end
     end
     
-    % display the results in grayscale
-    imshow(blur_im)
     
-    
+% blur_im = block_7x7_blur('cameraman_with_fiducials.tif');
+% im = im2double(im);
+% im_diff = im - blur_im;
+% colormap(gray(256));
+% axis image;
+% imagesc(im_diff)
+
     

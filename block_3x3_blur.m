@@ -9,7 +9,7 @@
 % Run this on the provided image and display the results.
 %
 
-function block_3x3_blur(im_in)
+function blur_im = block_3x3_blur(im_in)
 
     % read the image
     im_in = imread(im_in);
@@ -24,7 +24,7 @@ function block_3x3_blur(im_in)
     % find the average and store it in new blurred image
     original_size = size(im_in);
     
-    % find average of surrounding 3x3 pixel values
+    % find block average of surrounding 3x3 pixel values
     for row = 2:original_size(1)-1
         for col = 2:original_size(2)-1
             sum = 0.0;
@@ -38,9 +38,6 @@ function block_3x3_blur(im_in)
             blur_im(row, col) = sum / 9;
         end
     end
-    
-    % display the results in grayscale
-    imshow(blur_im)
-    
+     
     
     
